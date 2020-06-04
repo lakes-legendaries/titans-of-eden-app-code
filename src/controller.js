@@ -439,6 +439,7 @@ controller.end_of_game = function() {
 	// mark game over
 	controller.game_over = true;
 	instr     .game_over = true;
+	full_card .game_over = true;
 	
 	// show victory screen
 	controller.victory_screen = env.add.sprite(controller.victory_loc, 'victory');

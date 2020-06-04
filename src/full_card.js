@@ -16,6 +16,9 @@ var full_card = {
 	showing     : [-1, -1],      // last 2 cards shown, -1 is the default value
 	showing_subv: null,          // subversion frame currently being shown
 	active      : function() {return full_card[0].visible;}, // true if a full card is currently being shown
+	
+	// trigger to set
+	game_over   : false,
 }
 
 full_card.setup = function() {
@@ -48,6 +51,9 @@ full_card.setup = function() {
 	
 	// Hide created objects
 	full_card.hide();
+	
+	// Set game as ongoing
+	full_card.game_over = true;
 }
 
 full_card.update = function() {
@@ -93,6 +99,7 @@ full_card.show = function(card_num, subversion_frame) {
 	// see if skip
 	if (tut.block_full)  {return;}
 	if (camera.active()) {return;}
+	if (full_card.game_over && (zone.find(card_num).place == buy_top || zone.find(card_num).place == buy_other)) {return;}
 	
 	// check for touch
 	full_card.touch = touch.using();
