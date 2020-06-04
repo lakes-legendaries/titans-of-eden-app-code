@@ -10,6 +10,4 @@ Welcome to the online demo for Titans of Eden, an upcoming tabletop card game th
   
 Please pardon any bugs or errors that arise on this app: We are focusing our attention on developing the tabletop card game, and only created this online demo as a way to reach out to new players. (Personally, we are always nervous backing an unproven KickStarter game, so we're hoping to give potential backers an honest taste of what Titans Of Eden has to offer.) We actually learned JavaScript and Phaser from scratch just to code this app...  
   
-The combine.sh file generates the TitansOfEden.js code, which is copy-and-pasted into the website's HTML box element. These two files can be ignored if you're playing on a localhost.  
-  
 License: I hereby give my permission for you to use and modify this code to create your own app. I reserve all rights to this game's mechanics, rules, assets, names, characters, and artwork.  

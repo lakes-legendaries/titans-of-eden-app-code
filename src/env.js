@@ -41,9 +41,10 @@ env.preload = function(phasers_this) {
 	env.physics.load.image('background', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Background.png');
 	
 	// Load cards
-	env.physics.load.image      ('ref sheet' , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Reference%20Sheet.png');
-	env.physics.load.spritesheet('full cards', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Full%20Cards.png'  , {frameWidth: 500, frameHeight: 700});
-	env.physics.load.spritesheet('half cards', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Card%20Sprites.png', {frameWidth: 210, frameHeight: 160});
+	env.physics.load.image      ('ref sheet'   , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Reference%20Sheet.png');
+	env.physics.load.spritesheet('full cards A', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Full%20Cards%20A.png', {frameWidth: 500, frameHeight: 700});
+	env.physics.load.spritesheet('full cards B', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Full%20Cards%20B.png', {frameWidth: 500, frameHeight: 700});
+	env.physics.load.spritesheet('half cards'  , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Card%20Sprites.png'  , {frameWidth: 210, frameHeight: 160});
 	
 	// Load buttons
 	env.physics.load.image      ('log button'      , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Log%20Button.png');

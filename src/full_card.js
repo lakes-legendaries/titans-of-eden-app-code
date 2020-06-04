@@ -24,9 +24,10 @@ var full_card = {
 full_card.setup = function() {
 	
 	// Make full card sprites
-	full_card[0] = env.add.sprite(full_card.pos, 'full cards');
-	full_card[1] = env.add.sprite(full_card.pos, 'full cards');
-	full_card[2] = env.add.sprite(full_card.pos, 'full cards');
+	full_card[0] = env.add.sprite(full_card.pos, 'full cards A'); // 1st half of cards
+	full_card[1] = env.add.sprite(full_card.pos, 'full cards B'); // 2nd half of cards
+	full_card[2] = env.add.sprite(full_card.pos, 'full cards A'); // used for subversions, so first half
+	full_card[3] = env.add.sprite(full_card.pos, 'full cards A'); // used for subversions, so first half
 	
 	// Add hover-action for cards
 	for (let card_num = 0; card_num < card.num; card_num++) {
@@ -57,7 +58,7 @@ full_card.setup = function() {
 }
 
 full_card.update = function() {
-	for (let c = 2; c >= 0; c--) {
+	for (let c = 3; c >= 0; c--) {
 		if (!full_card[c].visible) {continue;}
 		env.to_front(full_card[c]);
 	}
@@ -67,6 +68,7 @@ full_card.hide = function() {
 	full_card[0].visible = false;
 	full_card[1].visible = false;
 	full_card[2].visible = false;
+	full_card[3].visible = false;
 	full_card.showing = [-1, -1];
 	full_card.showing_subv = null;
 	ref.hide();
@@ -77,18 +79,18 @@ full_card.hide = function() {
 // Backend
 full_card.pos = {x: 200, y: env.window.y/2, ymindist: 300, xoffset: 350, from_edge: 300, from_instr_box: 700, sub_offset: {x: 410, y: 262, from_edge: 300}}
 
-full_card.show_associated_subversion = function(subversion, sprite_num = 1) {
+full_card.show_associated_subversion = function(subversion, sprite_num = 2) {
 	
 	// Show 2 subversions
 	if (subversion == abilities.subvert_cave_in) {
-		full_card.show_associated_subversion(abilities.subvert_harmless, 1);
-		full_card.show_associated_subversion(abilities.subvert_mindless, 2);
+		full_card.show_associated_subversion(abilities.subvert_harmless, 2);
+		full_card.show_associated_subversion(abilities.subvert_mindless, 3);
 		return;
 	}
 	
 	// Show subversion
 	full_card[sprite_num].x = full_card[0].x + full_card.pos.sub_offset.x;
-	full_card[sprite_num].y = full_card[0].y + (sprite_num == 1? -1: 1) * full_card.pos.sub_offset.y;
+	full_card[sprite_num].y = full_card[0].y + (sprite_num == 2? -1: 1) * full_card.pos.sub_offset.y;
 	full_card[sprite_num].setFrame(subversion - abilities.subvert_cave_in).setScale(0.75);
 	full_card[sprite_num].visible = true;
 	env.to_front(full_card[sprite_num]);
@@ -118,8 +120,8 @@ full_card.show = function(card_num, subversion_frame) {
 	}
 	
 	// Hide subversions & ref card
-	full_card[1].visible = false;
 	full_card[2].visible = false;
+	full_card[3].visible = false;
 	ref.hide();
 	log.active = false;
 	
@@ -170,9 +172,17 @@ full_card.show = function(card_num, subversion_frame) {
 	}
 	
 	// Show card
-	full_card[0].setFrame(frame_num);
-	full_card[0].visible = true;
-	env.to_front(full_card[0]);
+	full_card[1].x = full_card[0].x;
+	full_card[1].y = full_card[0].y;
+	let full_card_index = frame_num >= 12? 1: 0;
+	let other_index     = full_card_index == 1? 0: 1;
+	let rel_frame       = frame_num % 12;
+	full_card[full_card_index].setFrame(rel_frame);
+	full_card[full_card_index].visible = true;
+	env.to_front(full_card[full_card_index]);
+	full_card[other_index].visible = false;
+	
+	// Mark which full card is being shown
 	full_card.showing[0] = full_card.showing[1];
 	full_card.showing[1] = !is_subv? card_num: -1;
 	full_card.showing_subv = subversion_frame;

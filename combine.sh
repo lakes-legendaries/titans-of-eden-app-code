@@ -1,2 +1,0 @@
-cat src/header.txt src/age.js src/env.js src/math.js src/player.js src/abilities.js src/camera.js src/log.js src/touch.js src/zone.js src/subv.js src/ref.js src/card.js src/move.js src/stats.js src/tut.js src/full_card.js src/instr.js src/actions.js src/ai.js src/loading.js src/controller.js src/button.js src/input.js src/debug.js src/game.js src/footer.txt > TitansOfEden.js
-minify TitansOfEden.js -o TitansOfEden.js
