@@ -15,7 +15,7 @@ var full_card = {
 	// meta-data
 	showing     : [-1, -1],      // last 2 cards shown, -1 is the default value
 	showing_subv: null,          // subversion frame currently being shown
-	active      : function() {return full_card[0].visible;}, // true if a full card is currently being shown
+	active      : function() {return full_card[0].visible || full_card[1].visible;}, // true if a full card is currently being shown
 	
 	// trigger to set
 	game_over   : false,
