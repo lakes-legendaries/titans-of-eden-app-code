@@ -53,7 +53,7 @@ full_card.setup = function() {
 	full_card.hide();
 	
 	// Set game as ongoing
-	full_card.game_over = true;
+	full_card.game_over = false;
 }
 
 full_card.update = function() {
@@ -99,7 +99,7 @@ full_card.show = function(card_num, subversion_frame) {
 	// see if skip
 	if (tut.block_full)  {return;}
 	if (camera.active()) {return;}
-	if (full_card.game_over && (zone.find(card_num).place == buy_top || zone.find(card_num).place == buy_other)) {return;}
+	if (full_card.game_over && (zone.find(card_num).place == zone.buy_top || zone.find(card_num).place == zone.buy_other)) {return;}
 	
 	// check for touch
 	full_card.touch = touch.using();
