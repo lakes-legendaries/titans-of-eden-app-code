@@ -148,7 +148,7 @@ instr.update = function() {
 			}
 			case age.step.buy: {
 				let energy = stats.energy(player.you);
-				let str = "[u][color=purple]Awakening[/u][/color]\nYou may use your [color=green]Energy[/color] abilities to awaken a card from the ritual piles. The card you awaken will be added to your discard, and then shuffled into your deck at the end of the turn.\n\nYou have [color=green]" + energy + " Energy.[/color]\n\nIf you don't want to awaken a card, click the button below."
+				let str = "[u][color=purple]Awakening[/u][/color]\nYou may use your [color=green]Energy[/color] abilities to awaken a card from the ritual piles. The card you awaken will be added to your discard, and then shuffled into your deck at the end of the turn.\n\n[color=green]You have " + energy + " Energy.[/color]\n\nIf you don't want to awaken a card, click the button below."
 				if (energy > 4) {
 					str += "\n\nEven though you have more than 4 [color=green]Energy,[/color] you can still only buy 1 card.";
 				}
