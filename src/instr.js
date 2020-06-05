@@ -150,7 +150,7 @@ instr.update = function() {
 				let energy = stats.energy(player.you);
 				let str = "[u][color=purple]Awakening[/u][/color]\nYou may use your [color=green]Energy[/color] abilities to awaken a card from the ritual piles. The card you awaken will be added to your discard, and then shuffled into your deck at the end of the turn.\n\n[color=green]You have " + energy + " Energy.[/color]\n\nIf you don't want to awaken a card, click the button below."
 				if (energy > 4) {
-					str += "\n\nEven though you have more than 4 [color=green]Energy,[/color] you can still only buy 1 card.";
+					str += "\n\nEven though you have more than 4 [color=green]Energy,[/color] you can still only awaken 1 card.";
 				}
 				instr.show(str);
 				break;
@@ -275,7 +275,7 @@ instr.hover_text = function(card_num, subversion_frame) {
 			str = "[color=blue]Travelers[/color] give you 2 [color=green]Energy[/color] each age, which lets you awaken better and more costly cards than you could with [color=blue]Monks[/color] alone.\n\nAdditionally, [color=blue]Travelers[/color] have 1 power, so they contribute to the fight (instead of idly standing by).";
 			break;
 		case card.name.ghost:
-			str = "[color=blue]Ghosts[/color] have negative power and no abilities. Don’t buy [color=blue]Ghosts[/color]: They’re bad. They’re only in the game so you can make your opponent gain them (with the [color=green]Haunt[/color] ability.";
+			str = "[color=blue]Ghosts[/color] have negative power and no abilities. Don’t awaken [color=blue]Ghosts[/color]: They’re bad. They’re only in the game so you can make your opponent gain them (with the [color=green]Haunt[/color] ability.";
 			break;
 		case card.name.nikolai_the_cursed:
 			str = "[color=blue]Nikolai, The Cursed[/color] has [color=green]Summon[/color], which lets you play 2 cards, instead of 1, each age.\n\nSo, if you play [color=blue]Nikolai, The Cursed[/color] during the 1st Age, then you get to play 2 cards, simultaneously, during each of the 2nd and 3rd Ages. (On the other hand, if you play [color=blue]Nikolai, The Cursed[/color] during the 3rd Age, it has no effect.)\n\n[color=blue]Nikolai, The Cursed[/color] has 0 power, but this is more than made up for by its awesome [color=green]Summon[/color] ability.";
@@ -301,7 +301,7 @@ instr.hover_text = function(card_num, subversion_frame) {
 			str = "[color=blue]Living Volcano[/color] has [color=green]Flash,[/color] which lets you play 1 additional card right after you play it. It also has [color=green]Discard 2,[/color] which forces your opponent to discard 2 random cards at the start of each age (limiting what they are able to play).";
 			break;
 		case card.name.return_of_the_frost_giants:
-			str = "[color=blue]Return of the Frost Giants[/color] has [color=green]Flash,[/color] which lets you play 1 additional card right after you play it. It also has [color=green]Substitute,[/color] which lets you replace 1 card you have in play with another 1 of your cards right before the battle. (Now abilities (which are abilities that start with the word Now) don't activate on replacement cards.)\n\n[color=green]Substitute[/color] lets you play a [color=blue]Monk[/color] to buy cards with, then replace it before battle with a more powerful card.";
+			str = "[color=blue]Return of the Frost Giants[/color] has [color=green]Flash,[/color] which lets you play 1 additional card right after you play it. It also has [color=green]Substitute,[/color] which lets you replace 1 card you have in play with another 1 of your cards right before the battle. (Now abilities (which are abilities that start with the word Now) don't activate on replacement cards.)\n\n[color=green]Substitute[/color] lets you play a [color=blue]Monk[/color] to awaken cards with, then replace it before battle with a more powerful card.";
 			break;
 		case card.name.spine_splitter:
 			str = "[color=blue]Spine Splitter[/color] has [color=green]Flash,[/color] which lets you play 1 additional card right after you play it. It also has [color=green]Sacrifice 2,[/color] which lets you permanently remove 2 cards in your hand from the game.\n\nThis is extremely powerful ability because it lets you remove your low-value cards from your deck, making it so that you'll draw your high-value cards more often.\n\nWe recommend removing [color=blue]Wizards[/color] first, and then [color=blue]Monks.[/color]";
