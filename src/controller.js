@@ -11,6 +11,7 @@ var controller = {
 	hand_size0     : 6,             // # of cards in starting hand
 	top_clicked    : null,          // whether the top    button has recently been clicked
 	bot_clicked    : null,          // whether the bottom button has recently been clicked
+	used_cave_in   : null,          // set to `true` when user uses cave in ability
 	game_over      : null,          // whether the game is over
 }
 
@@ -48,7 +49,7 @@ controller.advance = function() {
 		}
 		
 		// Discard Cavern's Defender from play
-		if (age.minor() == age.step.subvert_cave_in && !controller.top_clicked && ability_stats.count > 0 && ability_stats.conditions_met) {
+		if (age.minor() == age.step.subvert_cave_in && controller.used_cave_in) {
 			for (let d = zone.count(player.you, zone.play) - 1; d >= 0; d--) {
 				let card_num = zone.get(player.you, zone.play, d);
 				if (card[card_num].name != card.name.caverns_defender) {continue;}
@@ -56,6 +57,7 @@ controller.advance = function() {
 				break;
 			}
 		}
+		controller.used_cave_in = false;
 		
 		// Return for additional input
 		if (!controller.top_clicked && ability_stats.conditions_met) {

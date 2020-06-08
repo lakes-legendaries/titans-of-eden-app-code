@@ -103,6 +103,7 @@ input.select = function(card_num) {
 						actions.subvert(card_num, subv.type.traitorous);
 						break;
 					case age.step.subvert_cave_in:
+						controller.used_cave_in = true;
 						actions.subvert(card_num, subv.type.mindless);
 						actions.subvert(card_num, subv.type.harmless);
 						break;
