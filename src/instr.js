@@ -104,7 +104,7 @@ instr.update = function() {
 					
 					// Show surge text
 					if (age.major() == 0 && stats.temples(player.you) < 3 && stats.num_surges(player.you) > 0) {
-						str += "\n\n[color=purple][u]Surge[/u][/color]\nIf you don't like the hand you drew, you can use [color=green]Surge[/color] to discard it and draw a new one. (You can do this twice per game, only after you've lost a temple.)";
+						str += "\n\n[color=purple][u]Surge[/u][/color]\nIf you don't like the hand you drew, you can use [color=green]Surge[/color] to discard it and draw a new one. (You can only do this twice per game, and you cannot do this if you haven't lost a temple yet this game.)";
 					}
 				}
 				
