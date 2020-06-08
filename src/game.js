@@ -23,6 +23,7 @@ game.setup = function() {
 	env       .setup();
 	camera    .setup();
 	log       .setup();
+	maximize  .setup(game.phaser.scale);
 	zone      .setup();
 	subv      .setup();
 	ref       .setup();
@@ -43,6 +44,7 @@ game.update = function() {
 	loading   .update();
 	if (!loading.done) {return;}
 	camera    .update();
+	maximize  .update();
 	move      .update();
 	stats     .update();
 	tut       .update();

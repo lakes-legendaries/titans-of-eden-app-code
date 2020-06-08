@@ -81,6 +81,7 @@ tut.start = function() {
 	tut.arrow[tut.arrow.frame.log        ] = env.add.image(tut.pos.arrow[tut.arrow.frame.log        ], 'log arrow');
 	tut.arrow[tut.arrow.frame.explanation] = env.add.image(tut.pos.arrow[tut.arrow.frame.explanation], 'explanation arrow');
 	tut.arrow[tut.arrow.frame.top_card   ] = env.add.image(tut.pos.arrow[tut.arrow.frame.top_card   ], 'top card arrow');
+	tut.arrow[tut.arrow.frame.full_screen] = env.add.image(tut.pos.arrow[tut.arrow.frame.full_screen], 'full screen arrow');
 	for (let a = 0; a < tut.arrow.num; a++) {
 		tut.arrow[a].visible = false;
 	}
@@ -97,6 +98,22 @@ tut.start = function() {
 	// block card explanations & full cards from being shown
 	tut.block_instr = true;
 	tut.block_full  = true;
+	
+	// show full screen arrow
+	if (!maximize.scale.isFullscreen) {
+		tut.fs_help = true;
+		tut.arrow[tut.arrow.frame.full_screen].visible = true;
+		tut.fs_dismiss = env.add.sprite(tut.pos.fs_dismiss, 'tutorial buttons').setInteractive().setFrame(tut.button.frame.no_thanks).on('pointerdown', () => {
+			tut.arrow[tut.arrow.frame.full_screen].destroy();
+			tut.fs_dismiss.destroy();
+			tut.fs_help = false;
+		});
+		maximize.button.on('pointerdown', () => {
+			tut.arrow[tut.arrow.frame.full_screen].destroy();
+			tut.fs_dismiss.destroy();
+			tut.fs_help = false;
+		});
+	} else {tut.fs_help = false;}
 }
 
 // ====================================================================================
@@ -104,12 +121,13 @@ tut.start = function() {
 
 tut.button = {
 	frame: {
-		prev   : 0,
-		next   : 1,
-		play   : 2,
-		restart: 3,
-		got_it : 4,
-		blank  : 5,
+		prev     : 0,
+		next     : 1,
+		play     : 2,
+		restart  : 3,
+		got_it   : 4,
+		blank    : 5,
+		no_thanks: 6,
 	}
 }
 tut.arrow = {
@@ -121,8 +139,9 @@ tut.arrow = {
 		log        : 4,
 		explanation: 5,
 		top_card   : 6,
+		full_screen: 7,
 	},
-	num: 7,
+	num: 8,
 }
 tut.pos = {
 	main: {
@@ -169,7 +188,9 @@ tut.pos = {
 		{x: 1582, y: 385},
 		{x: 1415, y: 540},
 		{x: 1250, y: 600},
+		{x: 1582, y: 800},
 	],
+	fs_dismiss: {x: 1750, y: 740},
 }
 tut.main_stop      =  5;
 tut.first_buy_stop = 14;
@@ -239,6 +260,13 @@ tut.play = function() {
 	
 	// block full if instructions are up
 	tut.block_full = age.major() != 0;
+	
+	// get rid of full screen help
+	if (tut.fs_help) {
+		tut.arrow[tut.arrow.frame.full_screen].destroy();
+		tut.fs_dismiss.destroy();
+		tut.fs_help = false;
+	}
 }
 
 tut.buy = function() {
