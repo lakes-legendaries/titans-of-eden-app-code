@@ -542,7 +542,7 @@ tut.button.click = function(b) {
 				
 				// reset the game?
 				if (cur_frame == 4) {
-					env.physics.scene.restart();
+					game.setup();
 					return;
 				}
 				
