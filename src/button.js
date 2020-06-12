@@ -70,17 +70,18 @@ button.queue_update = function() {
 // ====================================================================================
 // Backend
 button.frame = {
-	tutorial        :  0,
-	surge           :  1,
-	discard_selected:  2,
-	discard_all     :  3,
-	dont_buy        :  4,
-	dont_subvert    :  5,
-	dont_sacrifice  :  6,
-	dont_purify     :  7,
-	dont_substitute :  8,
-	blank           :  9,
-	discard_none    : 10,
+	tutorial          :  0,
+	surge             :  1,
+	discard_selected  :  2,
+	discard_all       :  3,
+	dont_buy          :  4,
+	dont_subvert      :  5,
+	dont_sacrifice    :  6,
+	dont_purify       :  7,
+	dont_substitute   :  8,
+	blank             :  9,
+	discard_none      : 10,
+	sacrifice_selected: 11,
 }
 button.position = {
 	top: {x: 1730, y:  934},
@@ -139,8 +140,19 @@ button.click = {
 			return;
 		}
 		
+		// Sacrifice selected
+		if (button.top.frame.name == button.frame.sacrifice_selected) {
+			for (let d = zone.count(player.you, zone.hand)-1; d >= 0; d--) {
+				let card_num = zone.get(player.you, zone.hand, d);
+				if (highlight.active(card_num)) {
+					actions.sacrifice(card_num);
+				}
+			}
+			highlight.clear();
+		}
+		
 		// Discard selected
-		if (age.major() == age.battle) {
+		if (button.top.frame.name == button.frame.discard_selected) {
 			for (let d = zone.count(player.you, zone.hand)-1; d >= 0; d--) {
 				let card_num = zone.get(player.you, zone.hand, d);
 				if (highlight.active(card_num)) {

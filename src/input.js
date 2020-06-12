@@ -23,7 +23,7 @@ input.select = function(card_num) {
 	
 	// Can't select while object are moving, or if is blocked
 	if (move.in_progress() && !move.fading()) {return false;}
-	if (controller.game_over) {return;}
+	if (controller.game_over) {return false;}
 	
 	// Process touch input
 	if (touch.using() && full_card.showing[0] != card_num) {return false;}
@@ -123,10 +123,19 @@ input.select = function(card_num) {
 				// See if card can be sacrificed
 				if (loc.person != player.you || loc.place != zone.hand) {return false;}
 				
-				// Sacrifice card
-				actions.sacrifice(card_num);
-				break;
-			
+				// Turn highlight off, if on
+				if (highlight.active(card_num)) {
+					highlight.clear(card_num);
+				// Turn highlight on, if off and highlight limit not exceeded
+				} else if (highlight.num_active() < stats.count(player.you, abilities.sacrifice)) {
+					highlight.add  (card_num);
+				}
+				
+				// Update button
+				button.top.setFrame(highlight.any_active()? button.frame.sacrifice_selected: button.frame.dont_sacrifice);
+				
+				// Return -- we don't advance controller here
+				return false;
 			}
 			
 			// purify card
@@ -191,11 +200,7 @@ input.select = function(card_num) {
 		highlight.toggle(card_num);
 		
 		// Update button
-		if (highlight.any_active()) {
-			button.top.setFrame(button.frame.discard_selected);
-		} else {
-			button.top.setFrame(button.frame.discard_none);
-		}
+		button.top.setFrame(highlight.any_active()? button.frame.discard_selected: button.frame.discard_none);
 	}
 	
 	// hide full card
