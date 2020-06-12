@@ -187,7 +187,7 @@ instr.update = function() {
 			str += "[color=purple]The battle is fought to a draw.[/color]";
 		}
 		if (!instr.game_over) {
-			str += "\n\nSelect any number of cards in your hand to discard.\n\nAfter discarding, we'll shuffle all your cards together, and you'll draw until you have 6 cards in your hand.";
+			str += "\n\nSelect any number of cards in your hand to discard, then click one of the buttons below.\n\nAfter discarding, we'll shuffle all your cards together, and you'll draw until you have 6 cards in your hand.";
 		}
 		
 		// Show instructions
