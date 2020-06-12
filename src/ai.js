@@ -287,6 +287,16 @@ ai.buy_choice = function() {
 			}
 		}
 		
+		// get a spine splitter card, if any ghosts in deck
+		if (energy == 2) {
+			let spine_splitter = ai.from_list_get_named(candidates, card.name.spine_splitter);
+			let already_has    = ai.num_owned_named(player.opp, card.name.spine_splitter) > 0;
+			let has_ghosts     = ai.num_owned_named(player.opp, card.name.ghost) > 0;
+			if (spine_splitter != null && !already_has && has_ghosts) {
+				return spine_splitter;
+			}
+		}
+		
 		// get a protect card, if player.you has subvert & you don't have protect (not 1st turn, tho)
 		if (!age.first_turn() && energy == 3) {
 			let sdragon  =  ai.from_list_get_named(candidates, card.name.smoldering_dragon);
