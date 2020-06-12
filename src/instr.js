@@ -138,7 +138,7 @@ instr.update = function() {
 			}
 			case age.step.sacrifice: {
 				let sac_count = stats.count(player.you, abilities.sacrifice);
-				instr.show("[u][color=purple]Sacrifice[/u][/color]\nYou may permanently remove " + sac_count + " card" + (sac_count > 1? "s": "") + " in your hand from the game.\n\nIf you don't want to use  [color=green]Sacrifice,[/color] click the button below.\n\nWe recommend first removing your Wizards from your hand, and then your Monks. (This will cause you to draw your better cards more often.)");
+				instr.show("[u][color=purple]Sacrifice[/u][/color]\nYou may permanently remove " + sac_count + " card" + (sac_count > 1? "s": "") + " in your hand from the game.\n\nSelect the cards you want to [color=green]Sacrifice,[/color] then click the button below.\n\nWe recommend first removing your Wizards from your hand, and then your Monks. (This will cause you to draw your better cards more often.)");
 				break;
 			}
 			case age.step.purify: {
