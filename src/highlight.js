@@ -58,9 +58,9 @@ highlight.clear = function(highlight_card) {
 			highlight.clear(card_num);
 		}
 		
-		// set all depths to one
+		// set all depths to zero
 		for (let card_num = 0; card_num < card.num; card_num++) {
-			card[card_num].sprite.setDepth(1);
+			card[card_num].sprite.setDepth(0);
 		}
 		
 		// return
