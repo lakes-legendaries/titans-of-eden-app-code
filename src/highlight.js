@@ -29,10 +29,16 @@ highlight.setup = function() {
 }
 
 highlight.add = function(highlight_card) {
+	// set depth for cards in hand
 	for (let d = 0; d < zone.count(player.you, zone.hand); d++) {
 		let card_num = zone.get(player.you, zone.hand, d);
 		card[card_num].sprite.setDepth(2*(d+1));
 	}
+	
+	// hide full card (so that it doesn't flicker)
+	full_card.hide();
+	
+	// add highlight to card	
 	env.place(highlight[highlight_card], card[highlight_card].sprite);
 	highlight[highlight_card].setDepth(card[highlight_card].sprite.depth-1);
 }
