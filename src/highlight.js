@@ -66,7 +66,12 @@ highlight.clear = function(highlight_card) {
 		// return
 		return;
 	}
+	
+	// remove highlight from card
 	env.place(highlight[highlight_card], env.nowhere);
+	
+	// hide full card (for consistency w/ adding)
+	full_card.hide();
 }
 
 highlight.active = function(highlight_card) {
