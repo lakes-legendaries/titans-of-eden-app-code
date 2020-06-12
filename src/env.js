@@ -82,6 +82,7 @@ env.preload = function(phasers_this) {
 	env.physics.load.image('explanation arrow' , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Explanation%20arrow.png');
 	env.physics.load.image('top card arrow'    , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Top%20card%20arrow.png');
 	env.physics.load.image('full screen arrow' , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Full%20Screen%20Arrow.png');
+	env.physics.load.image('surge arrow'       , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Surge%20arrow.png');
 	env.physics.load.spritesheet('camera arrow', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Camera%20arrows.png', {frameWidth: 700, frameHeight: 500});
 	
 	// Load main symbol

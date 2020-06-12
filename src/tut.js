@@ -82,6 +82,7 @@ tut.start = function() {
 	tut.arrow[tut.arrow.frame.explanation] = env.add.image(tut.pos.arrow[tut.arrow.frame.explanation], 'explanation arrow');
 	tut.arrow[tut.arrow.frame.top_card   ] = env.add.image(tut.pos.arrow[tut.arrow.frame.top_card   ], 'top card arrow');
 	tut.arrow[tut.arrow.frame.full_screen] = env.add.image(tut.pos.arrow[tut.arrow.frame.full_screen], 'full screen arrow');
+	tut.arrow[tut.arrow.frame.surge      ] = env.add.image(tut.pos.arrow[tut.arrow.frame.surge      ], 'surge arrow');
 	for (let a = 0; a < tut.arrow.num; a++) {
 		tut.arrow[a].visible = false;
 	}
@@ -140,8 +141,9 @@ tut.arrow = {
 		explanation: 5,
 		top_card   : 6,
 		full_screen: 7,
+		surge      : 8,
 	},
-	num: 8,
+	num: 9,
 }
 tut.pos = {
 	main: {
@@ -189,6 +191,7 @@ tut.pos = {
 		{x: 1415, y: 540},
 		{x: 1250, y: 600},
 		{x: 1582, y: 800},
+		{x: 1300, y: 850},
 	],
 	fs_dismiss: {x: 1750, y: 740},
 }
@@ -541,7 +544,7 @@ tut.button.click = function(b) {
 				let cur_frame = tut.final_instr.frame.name;
 				
 				// reset the game?
-				if (cur_frame == 4) {
+				if (cur_frame == 5) {
 					game.setup();
 					return;
 				}
@@ -550,7 +553,7 @@ tut.button.click = function(b) {
 				tut.final_instr.setFrame(cur_frame + 1);
 				
 				// show restart button
-				if (cur_frame == 3) {
+				if (cur_frame == 4) {
 					tut.button[0].setFrame(tut.button.frame.restart);
 				}
 				
@@ -587,6 +590,13 @@ tut.button.click = function(b) {
 					}
 					case 3: {
 						tut.arrow[tut.arrow.frame.explanation].setVisible(false);
+						let sprite = tut.arrow[tut.arrow.frame.surge];
+						sprite.setVisible(true);
+						env.to_front(sprite);
+						break;
+					}
+					case 4: {
+						tut.arrow[tut.arrow.frame.surge].setVisible(false);
 						break;
 					}
 				}
