@@ -58,8 +58,8 @@ button.update = function() {
 		}
 		button.bot.setFrame(button.frame.blank);
 	} else {
-		button.top.setFrame(tut.active()? button.frame.blank: button.frame.next_turn);
-		button.bot.setFrame(button.frame.discard_all);
+		button.top.setFrame(tut.active()? button.frame.blank: button.frame.discard_none);
+		button.bot.setFrame(tut.active()? button.frame.blank: button.frame.discard_all);
 	}
 }
 
@@ -70,16 +70,17 @@ button.queue_update = function() {
 // ====================================================================================
 // Backend
 button.frame = {
-	tutorial       : 0,
-	surge          : 1,
-	next_turn      : 2,
-	discard_all    : 3,
-	dont_buy       : 4,
-	dont_subvert   : 5,
-	dont_sacrifice : 6,
-	dont_purify    : 7,
-	dont_substitute: 8,
-	blank          : 9,
+	tutorial        :  0,
+	surge           :  1,
+	discard_selected:  2,
+	discard_all     :  3,
+	dont_buy        :  4,
+	dont_subvert    :  5,
+	dont_sacrifice  :  6,
+	dont_purify     :  7,
+	dont_substitute :  8,
+	blank           :  9,
+	discard_none    : 10,
 }
 button.position = {
 	top: {x: 1730, y:  934},
@@ -138,6 +139,22 @@ button.click = {
 			return;
 		}
 		
+		// Discard selected
+		if (age.major() == age.battle) {
+			for (let d = zone.count(player.you, zone.hand)-1; d >= 0; d--) {
+				let card_num = zone.get(player.you, zone.hand, d);
+				if (highlight.active(card_num)) {
+					
+					// Log discard
+					log.add({event: log.event.shuffle_discard, person: player.you, count: 1, card_num: card_num});
+					
+					// Perform discard
+					actions.discard(player.you, card_num, {simultaneous: true});
+				}
+			}
+			highlight.clear();
+		}
+		
 		// Process click
 		controller.top_clicked = true;
 		controller.advance();
@@ -168,6 +185,7 @@ button.click = {
 		
 		// Discard all
 		move.combine_zone(player.you, zone.hand, zone.disc);
+		highlight.clear();
 		controller.advance();
 		
 		// Hide help

@@ -28,6 +28,7 @@ game.setup = function() {
 	subv      .setup();
 	ref       .setup();
 	card      .setup();
+	highlight .setup();
 	move      .setup();
 	stats     .setup();
 	tut       .setup();

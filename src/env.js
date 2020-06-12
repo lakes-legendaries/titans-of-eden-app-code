@@ -69,9 +69,10 @@ env.preload = function(phasers_this) {
 	env.physics.load.spritesheet('later buy instructions', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Later%20buy%20instructions.png', {frameWidth:  1100, frameHeight: 650});
 	env.physics.load.spritesheet('final instructions'   , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Final%20Instructions.png'    , {frameWidth:   650, frameHeight: 300});
 	
-	// Tutorial shaders
+	// Shaders
 	env.physics.load.spritesheet('vertical shaders' , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Vertical%20Shaders.png' , {frameWidth:  300, frameHeight: 1000});
 	env.physics.load.image      ('horizontal shader', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Horizontal%20Shader.png');
+	env.physics.load.image      ('single shader', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Single%20Shader.png');
 	
 	// Tutorial arrows
 	env.physics.load.image('play arrow'        , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Play%20arrow.png');

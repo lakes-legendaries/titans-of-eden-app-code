@@ -187,11 +187,15 @@ input.select = function(card_num) {
 		// Check if card is in your hand
 		if (loc.person != player.you || loc.place != zone.hand) {return false;} // card isn't in your hand
 		
-		// Add to log
-		log.add({event: log.event.shuffle_discard, person: player.you, count: 1, card_num: card_num});
+		// Toggle for discarding
+		highlight.toggle(card_num);
 		
-		// Discard
-		actions.discard(player.you, card_num);
+		// Update button
+		if (highlight.any_active()) {
+			button.top.setFrame(button.frame.discard_selected);
+		} else {
+			button.top.setFrame(button.frame.discard_none);
+		}
 	}
 	
 	// hide full card
