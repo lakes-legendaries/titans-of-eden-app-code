@@ -4,7 +4,7 @@ Lake's Legendaries
 Mike Powell PhD  
 © Lake's Legendaries 2018 - 2020  
   
-Version 0.5.0  
+Version 0.6.0  
   
 Welcome to the online demo for Titans of Eden, an upcoming tabletop card game that will launch on KickStarter in 2021. This demo is meant to teach players how to play, giving them insight into how the real game will look and feel when it launches. It can be played in a browser at http://www.TitansOfEden.com/online-demo  
   
