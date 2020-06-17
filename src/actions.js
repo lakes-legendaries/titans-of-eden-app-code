@@ -93,7 +93,7 @@ actions.haunt = function(person, num_times) {
 	
 	// Skip if opponent is protected
 	if (stats.count(person, abilities.protect) > 0) {
-		log.add({event: log.event.protect, person: +(!person), ability: "Haunt"});
+		log.add({event: log.event.protect, person: person, ability: "Haunt"});
 		return;
 	}
 	
