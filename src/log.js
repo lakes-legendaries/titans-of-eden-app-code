@@ -118,7 +118,7 @@ log.text = function() {
 				break;
 			}
 			case log.event.decline: {
-				str += log.subject(elem.person) + " chose to not use " + log.ability(elem.ability);
+				str += log.subject(elem.person) + " chose to not use " + log.ability(elem.ability) + ".";
 				break;
 			}
 			case log.event.decline_buy: {
