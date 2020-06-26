@@ -64,7 +64,8 @@ env.preload = function(phasers_this) {
 	env.physics.load.spritesheet('victory' , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Victory%20Screen.png', {frameWidth: 1100, frameHeight: 650});
 	
 	// Tutorial instructions
-	env.physics.load.spritesheet('main instructions'     , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Main%20Instructions.png'     , {frameWidth:  1100, frameHeight: 650});
+	env.physics.load.spritesheet('main instructions a'     , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Main%20Instructions A.png'     , {frameWidth:  1100, frameHeight: 650});
+	env.physics.load.spritesheet('main instructions b'     , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Main%20Instructions B.png'     , {frameWidth:  1100, frameHeight: 650});
 	env.physics.load.spritesheet('first buy instructions', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/First%20Buy%20Instructions.png', {frameWidth: 412.5, frameHeight: 250});
 	env.physics.load.spritesheet('later buy instructions', 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Later%20buy%20instructions.png', {frameWidth:  1100, frameHeight: 650});
 	env.physics.load.spritesheet('final instructions'   , 'https://raw.githubusercontent.com/lakes-legendaries/titans-of-eden-assets/master/Final%20Instructions.png'    , {frameWidth:   650, frameHeight: 300});

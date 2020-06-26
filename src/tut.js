@@ -50,8 +50,8 @@ tut.setup = function() {
 }
 
 tut.update = function() {
-	if (tut.active() && tut.main.visible) {
-		env.to_front(tut.main);
+	if (tut.active() && (tut.main.visible || tut.main2.visible)) {
+		env.to_front(tut.main.visible? tut.main: tut.main2);
 		env.to_front(tut.button[0]);
 		env.to_front(tut.button[1]);
 	}
@@ -63,7 +63,9 @@ tut.start = function() {
 	tut.stage.cur = tut.stage.main;
 	
 	// make main instruction
-	tut.main = env.add.sprite(tut.pos.main, 'main instructions');
+	tut.main  = env.add.sprite(tut.pos.main, 'main instructions a');
+	tut.main2 = env.add.sprite(tut.pos.main, 'main instructions b');
+	tut.main2.visible = false;
 	
 	// setup buttons for main instructions
 	tut.button[0].setFrame(tut.button.frame.blank);
@@ -195,8 +197,12 @@ tut.pos = {
 	],
 	fs_dismiss: {x: 1750, y: 740},
 }
-tut.main_stop      =  5;
+tut.main_npanels   =  6;
+tut.main2_npanels  =  6;
+tut.main_stop      =  7;
 tut.first_buy_stop = 14;
+tut.main2_on       = false;
+tut.main_frame     = function() {return tut.main.frame.name + tut.main2.frame.name + (tut.main2_on? 1: 0);}
 
 // ====================================================================================
 // Backend - basic functions & controllers
@@ -246,16 +252,16 @@ tut.play = function() {
 	// show play instructions
 	switch (age.major()) {
 		case 1:
-			tut.main.setFrame(6).setVisible(true);
+			tut.main2.setFrame(tut.main_stop - tut.main_npanels + 1).setVisible(true);
 			tut.button[0].setFrame(tut.button.frame.got_it).setVisible(true);
-			env.to_front(tut.main);
+			env.to_front(tut.main2);
 			env.to_front(tut.button[0]);
 			env.place(tut.button[0], tut.pos.main.button[1]);
 			break;
 		case 2:
-			tut.main.setFrame(7).setVisible(true);
+			tut.main2.setFrame(tut.main_stop - tut.main_npanels + 2).setVisible(true);
 			tut.button[0].setFrame(tut.button.frame.got_it).setVisible(true);
-			env.to_front(tut.main);
+			env.to_front(tut.main2);
 			env.to_front(tut.button[0]);
 			env.place(tut.button[0], tut.pos.main.button[1]);
 			break;
@@ -319,9 +325,9 @@ tut.battle = function() {
 	tut.arrow[tut.arrow.frame.buy   ].visible = false;
 	
 	// show battle instructions
-	tut.main.setVisible(true).setFrame(8);
-	env.to_front(tut.main);
-	env.place(tut.main, tut.pos.battle);
+	tut.main2.setVisible(true).setFrame(tut.main_stop - tut.main_npanels + 3);
+	env.to_front(tut.main2);
+	env.place(tut.main2, tut.pos.battle);
 	
 	// show battle button
 	env.place(tut.button[0], tut.pos.battle.button);
@@ -344,11 +350,19 @@ tut.button.click = function(b) {
 		// ============================================================================
 		// main stage (overview instructions) -- toggle main instructions
 		case tut.stage.main: {
-			let cur_frame = tut.main.frame.name;
+			let cur_frame = tut.main.frame.name + tut.main2.frame.name + (tut.main2.visible? 1: 0);
 			// previous button clicked
 			if (b == 0) {
 				if (cur_frame > 0) {
-					tut.main.setFrame(cur_frame-1);
+					if (cur_frame == tut.main_npanels) {
+						tut.main .visible =  true;
+						tut.main2.visible = false;
+						tut.main .setFrame(tut.main_npanels - 1);
+					} else if (cur_frame > tut.main_npanels) {
+						tut.main2.setFrame(cur_frame-1 - tut.main.n_panels);
+					} else {
+						tut.main .setFrame(cur_frame-1);
+					}
 					tut.button[1].setFrame(tut.button.frame.next);
 					if (cur_frame-1 == 0) {
 						tut.button[0].setFrame(tut.button.frame.blank);
@@ -359,7 +373,7 @@ tut.button.click = function(b) {
 				if (cur_frame == tut.main_stop) {
 					
 					// clear out main instructions
-					tut.main     .visible = false;
+					tut.main2    .visible = false;
 					tut.button[0].visible = false;
 					tut.button[1].visible = false;
 					
@@ -367,7 +381,15 @@ tut.button.click = function(b) {
 					tut.play();
 					
 				} else {
-					tut.main.setFrame(cur_frame+1);
+					if (cur_frame + 1 == tut.main_npanels) {
+						tut.main .visible = false;
+						tut.main2.visible =  true;
+						tut.main2.setFrame(0);
+					} else if (cur_frame + 1 > tut.main_npanels) {
+						tut.main2.setFrame(cur_frame+1 - tut.main_npanels);
+					} else {
+						tut.main .setFrame(cur_frame+1);
+					}
 					tut.button[0].setFrame(tut.button.frame.prev);
 					if (cur_frame+1 == tut.main_stop) {
 						tut.button[1].setFrame(tut.button.frame.play);
@@ -380,7 +402,8 @@ tut.button.click = function(b) {
 		// ============================================================================
 		// play: clear instructions, show play arrow
 		case tut.stage.play:
-			tut.main.visible = false;
+			tut.main .visible = false;
+			tut.main2.visible = false;
 			tut.button[0].visible = false;
 			tut.show_play_arrow();
 			tut.block_full = false;
@@ -505,15 +528,15 @@ tut.button.click = function(b) {
 			
 			// ========================================================================
 			// battle overview
-			if (tut.main.visible) {
+			if (tut.main2.visible) {
 				
 				// get frame
-				let cur_frame = tut.main.frame.name;
+				let cur_frame = tut.main2.frame.name;
 				
 				// show next frame
-				if (cur_frame == 8) {
+				if (cur_frame == tut.main2_npanels - 2) {
 					
-					tut.main.setFrame(cur_frame + 1);
+					tut.main2.setFrame(cur_frame + 1);
 					
 					// allow button updating
 					tut.block_button = false;
@@ -522,7 +545,7 @@ tut.button.click = function(b) {
 				} else {
 					
 					// hid main instructions
-					tut.main.setVisible(false);
+					tut.main2.setVisible(false);
 					
 					// allow full card
 					tut.block_full   = false;
