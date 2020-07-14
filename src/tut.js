@@ -55,6 +55,9 @@ tut.update = function() {
 		env.to_front(tut.button[0]);
 		env.to_front(tut.button[1]);
 	}
+	if (tut.active() && age.major() == 2 && age.minor() == age.step.buy && !camera.at_left() && tut.later_buys.visible) {
+		tut.super_effective.setVisible(true);
+	}
 }
 
 tut.start = function() {
@@ -90,9 +93,10 @@ tut.start = function() {
 	}
 	
 	// create additional instructions
-	tut.first_buy   = env.add.sprite(tut.pos.first_buy  , 'first buy instructions').setVisible(false);
-	tut.later_buys  = env.add.sprite(tut.pos.later_buys , 'later buy instructions').setVisible(false);
-	tut.final_instr = env.add.sprite(tut.pos.final_instr, 'final instructions'    ).setVisible(false);
+	tut.first_buy       = env.add.sprite(tut.pos.first_buy      , 'first buy instructions').setVisible(false);
+	tut.later_buys      = env.add.sprite(tut.pos.later_buys     , 'later buy instructions').setVisible(false);
+	tut.final_instr     = env.add.sprite(tut.pos.final_instr    , 'final instructions'    ).setVisible(false);
+	tut.super_effective = env.add.sprite(tut.pos.super_effective, 'super-effective'       ).setVisible(false);
 	
 	// create shaders
 	tut.v_shade = env.add.sprite(env.nowhere, 'vertical shaders' );
@@ -156,10 +160,11 @@ tut.pos = {
 			{x: 1015, y: 855},
 		],
 	},
-	play_offset: {x:    0, y: -150},
-	buy_offset : {x: -300, y:    0},
-	first_buy  : {x: 3125, y:  540, button: {x: 3260, y: 660}},
-	later_buys : {x: 2865, y:  540, button: {x: 3200, y: 840}},
+	play_offset    : {x:    0, y: -150},
+	buy_offset     : {x: -300, y:    0},
+	first_buy      : {x: 3125, y:  540, button: {x: 3260, y: 660}},
+	later_buys     : {x: 2865, y:  540, button: {x: 3200, y: 840}},
+	super_effective: {x: 2100, y: 350},
 	shader: {
 		sky      : 2075,
 		fire     : 2375,
@@ -299,6 +304,7 @@ tut.buy = function() {
 			break;
 		case 2:
 			tut.later_buys.setFrame(1);
+			//tut.super_effective.setVisible(true);
 			// fall through
 		case 1:
 			tut.later_buys.setVisible(true);
@@ -507,6 +513,7 @@ tut.button.click = function(b) {
 					// hide instructions
 					tut.later_buys.visible = false;
 					tut.button[0] .visible = false;
+					tut.super_effective.visible = false;
 					tut.block_full = false;
 					
 					// show buy arrow

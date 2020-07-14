@@ -13,6 +13,7 @@ var camera = {
 	setup    : function() {}, // phaser plugin
 	update   : function() {}, // phaser plugin
 	at_left  : function() {return camera.to_x == camera.left}, // returns true if at default position
+	at_right : function() {return camera.to_x == camera.right}, // returns true if at default position
 	to_right : function() {camera.to_x = camera.right;},       // move camera to the buy piles (right)
 	active   : function() {}, // return whether camera is moving
 }
