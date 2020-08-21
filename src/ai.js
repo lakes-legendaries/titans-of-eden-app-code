@@ -794,6 +794,7 @@ ai.subvert = function(num_cards, type) {
 				if (type == subv.type.cave_in) {
 					actions.subvert(choice, subv.type.mindless);
 					actions.subvert(choice, subv.type.harmless);
+					actions.discard(player.opp, zone.get_last(player.opp, zone.play));
 				} else {
 					actions.subvert(choice, type);
 				}
