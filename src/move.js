@@ -183,12 +183,18 @@ move.process_fade = function() {
 		}
 		
 		// Place fade-in card
-		if (!fading_out) {
+		if (is_card && !fading_out) {
 			let dest = math.add_coords(card[props.root].sprite, props.offset);
 			if (dest.x != sprite.x || dest.y != sprite.y) {
 				env.place(sprite, dest);
 				sprite.alpha = 0;
 			}
+		}
+		
+		// Make visible if not
+		if (!fading_out && sprite.visible == false) {
+			sprite.visible = true;
+			sprite.alpha   = 0;
 		}
 		
 		// Change transparency

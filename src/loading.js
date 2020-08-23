@@ -50,6 +50,18 @@ loading.setup = function() {
 	env.to_front(loading.progressBox);
 	env.to_front(loading.progressBar);
 	env.to_front(loading.main_symbol);
+	
+	// add full screen button to queue
+	loading.fsbutton = env.add.image({x:  815, y: 540}, 'lfs button');
+	loading.xbutton  = env.add.image({x: 1440, y: 390}, 'x button');
+	loading.fsbutton.visible = false;
+	loading.xbutton .visible = false;
+	if (game.phaser.scale.displaySize.width < 1000) {
+		move.fade_in(loading.fsbutton);
+		move.fade_in(loading.xbutton);
+		loading.fsbutton.setInteractive().on('pointerdown', () => {maximize.scale.toggleFullscreen();});
+		loading.xbutton.setInteractive ().on('pointerdown', () => {loading.fsbutton.visible = false; loading.xbutton.visible = false;});
+	}
 }
 
 loading.update = function() {
