@@ -21,6 +21,8 @@ maximize.update = function() {
 	if (loading.fsbutton.visible == true && maximize.scale.isFullscreen) {
 		loading.fsbutton.visible = false;
 		loading. xbutton.visible = false;
+		loading.fsbutton.kill    =  true;
+		loading. xbutton.kill    =  true;
 	}
 }
 

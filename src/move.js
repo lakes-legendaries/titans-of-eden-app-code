@@ -192,7 +192,7 @@ move.process_fade = function() {
 		}
 		
 		// Make visible if not
-		if (!fading_out && sprite.visible == false) {
+		if (!fading_out && sprite.visible == false && !sprite.kill) {
 			sprite.visible = true;
 			sprite.alpha   = 0;
 		}
