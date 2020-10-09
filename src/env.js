@@ -54,8 +54,7 @@ env.preload = function(phasers_this) {
 	env.physics.load.spritesheet('camera'            , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Camera%20Toggles.png'      , {frameWidth:  75, frameHeight: 175});
 	env.physics.load.spritesheet('tutorial buttons'  , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Tutorial%20Buttons.png'    , {frameWidth: 200, frameHeight:  75});
 	env.physics.load.spritesheet('full screen button', 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Full%20Screen%20Button.png', {frameWidth:  75, frameHeight:  75});
-	//env.physics.load.spritesheet('title buttons'     , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Title%20Buttons.png'       , {frameWidth: 600, frameHeight: 150});
-	env.physics.load.spritesheet('title buttons'     , '../assets/Title Buttons.png'       , {frameWidth: 600, frameHeight: 150});
+	env.physics.load.spritesheet('title buttons'     , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Title%20Buttons.png'       , {frameWidth: 600, frameHeight: 150});
 	
 	// Load text
 	env.physics.load.spritesheet('age text', 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Age%20Text.png'      , {frameWidth: 300, frameHeight: 120});
