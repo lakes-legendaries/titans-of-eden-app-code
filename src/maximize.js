@@ -18,12 +18,6 @@ maximize.setup = function(scale) {
 
 maximize.update = function() {
 	maximize.button.setFrame(maximize.scale.isFullscreen? 1: 0);
-	if (loading.fsbutton.visible == true && maximize.scale.isFullscreen) {
-		loading.fsbutton.visible = false;
-		loading. xbutton.visible = false;
-		loading.fsbutton.kill    =  true;
-		loading. xbutton.kill    =  true;
-	}
 }
 
 // ====================================================================================

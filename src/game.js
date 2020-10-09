@@ -42,7 +42,6 @@ game.setup = function() {
 }
 
 game.update = function() {
-	loading   .update();
 	if (!loading.done) {return;}
 	camera    .update();
 	maximize  .update();
@@ -64,7 +63,16 @@ game.config = {
 	scene  : {
 		preload: game.preload,
 		create : game.setup,
-		update : game.update
+		update : game.update,
+		pack: {files: [
+			{type: 'image', key: 'cover0', url: '../assets/Cover 0.png'},
+			{type: 'image', key: 'cover1', url: '../assets/Cover 1.png'},
+			{type: 'image', key: 'cover2', url: '../assets/Cover 2.png'},
+			{type: 'image', key: 'cover3', url: '../assets/Cover 3.png'},
+			{type: 'image', key: 'cover4', url: '../assets/Cover 4.png'},
+			{type: 'image', key: 'cover5', url: '../assets/Cover 5.png'},
+			{type: 'image', key: 'cover6', url: '../assets/Cover 6.png'}
+		]}
 	},
 	scale: {
 		mode      : Phaser.Scale.FIT,
