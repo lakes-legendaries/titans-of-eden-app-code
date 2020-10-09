@@ -210,7 +210,7 @@ stats.decrement = function(person, ability, num_times) {
 // ====================================================================================
 // Backend
 stats.position = {temples: [], surges: [], power: [[], []], delta: []}
-stats.position.ages                   = {x: 1775, y:  345}
+stats.position.ages                   = {x: 1770, y:  345}
 stats.position.temples[player.you]    = {x: 1425, y:  925};
 stats.position.temples[player.opp]    = {x: 1425, y:   42};
 stats.position.surges [player.you]    = {x: 1425, y:  985};
