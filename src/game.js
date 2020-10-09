@@ -66,12 +66,12 @@ game.config = {
 		update : game.update,
 		pack: {files: [
 			{type: 'image', key: 'cover0', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%200.png'},
-			{type: 'image', key: 'cover0', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%201.png'},
-			{type: 'image', key: 'cover0', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%202.png'},
-			{type: 'image', key: 'cover0', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%203.png'},
-			{type: 'image', key: 'cover0', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%204.png'},
-			{type: 'image', key: 'cover0', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%205.png'},
-			{type: 'image', key: 'cover0', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%206.png'}
+			{type: 'image', key: 'cover1', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%201.png'},
+			{type: 'image', key: 'cover2', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%202.png'},
+			{type: 'image', key: 'cover3', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%203.png'},
+			{type: 'image', key: 'cover4', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%204.png'},
+			{type: 'image', key: 'cover5', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%205.png'},
+			{type: 'image', key: 'cover6', url: 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Cover%206.png'}
 		]}
 	},
 	scale: {
