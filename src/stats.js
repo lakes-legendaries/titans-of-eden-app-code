@@ -210,19 +210,19 @@ stats.decrement = function(person, ability, num_times) {
 // ====================================================================================
 // Backend
 stats.position = {temples: [], surges: [], power: [[], []], delta: []}
-stats.position.ages                   = {x: 1760, y:  340}
-stats.position.temples[player.you]    = {x: 1460, y:  912};
-stats.position.temples[player.opp]    = {x: 1460, y:   34};
-stats.position.surges [player.you]    = {x: 1460, y:  979};
-stats.position.surges [player.opp]    = {x: 1460, y:  101};
-stats.position.delta  [player.you]    = {x: 1518, y:  912};
-stats.position.delta  [player.opp]    = {x: 1518, y:   32};
-stats.position.power  [player.you][0] = {x: 1460, y: 1046};
-stats.position.power  [player.you][1] = {x: 1495, y: 1046};
-stats.position.power  [player.you][2] = {x: 1530, y: 1046};
-stats.position.power  [player.opp][0] = {x: 1460, y:  168};
-stats.position.power  [player.opp][1] = {x: 1495, y:  168};
-stats.position.power  [player.opp][2] = {x: 1530, y:  168};
+stats.position.ages                   = {x: 1770, y:  345}
+stats.position.temples[player.you]    = {x: 1420, y:  925};
+stats.position.temples[player.opp]    = {x: 1420, y:   42};
+stats.position.surges [player.you]    = {x: 1420, y:  985};
+stats.position.surges [player.opp]    = {x: 1420, y:  102};
+stats.position.delta  [player.you]    = {x: 1470, y:  925};
+stats.position.delta  [player.opp]    = {x: 1470, y:   42};
+stats.position.power  [player.you][0] = {x: 1420, y: 1045};
+stats.position.power  [player.you][1] = {x: 1455, y: 1045};
+stats.position.power  [player.you][2] = {x: 1490, y: 1045};
+stats.position.power  [player.opp][0] = {x: 1420, y:  162};
+stats.position.power  [player.opp][1] = {x: 1455, y:  162};
+stats.position.power  [player.opp][2] = {x: 1490, y:  162};
 
 stats.num_played_of_elem = function(person, elem) {
 	let num = 0;

@@ -42,6 +42,7 @@ game.setup = function() {
 }
 
 game.update = function() {
+	loading.update();
 	if (!loading.done) {return;}
 	camera    .update();
 	maximize  .update();

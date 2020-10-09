@@ -44,7 +44,7 @@ env.preload = function(phasers_this) {
 	env.physics.load.image      ('ref sheet'   , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Reference%20Sheet.png');
 	env.physics.load.spritesheet('full cards A', 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Full%20Cards%20A.png', {frameWidth: 500, frameHeight: 700});
 	env.physics.load.spritesheet('full cards B', 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Full%20Cards%20B.png', {frameWidth: 500, frameHeight: 700});
-	env.physics.load.spritesheet('half cards'  , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Card%20Sprites.png'  , {frameWidth: 210, frameHeight: 160});
+	env.physics.load.spritesheet('half cards'  , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Card%20Sprites.png'  , {frameWidth: 250, frameHeight: 200});
 	
 	// Load buttons
 	env.physics.load.image      ('log button'        , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Log%20Button.png');
@@ -57,7 +57,7 @@ env.preload = function(phasers_this) {
 	env.physics.load.spritesheet('title buttons'     , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Title%20Buttons.png'       , {frameWidth: 600, frameHeight: 150});
 	
 	// Load text
-	env.physics.load.spritesheet('age text', 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Age%20Text.png'      , {frameWidth: 300, frameHeight: 120});
+	env.physics.load.spritesheet('age text', 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Age%20Text.png'      , {frameWidth: 350, frameHeight: 170});
 	env.physics.load.spritesheet('delta'   , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Delta.png'         , {frameWidth: 100, frameHeight:  67});
 	env.physics.load.spritesheet('numbers' , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Numbers.png'       , {frameWidth:  50, frameHeight:  67});
 	
