@@ -107,20 +107,21 @@ tut.start = function() {
 	tut.block_full  = true;
 	
 	// show full screen arrow
-	if (!maximize.scale.isFullscreen) {
-		tut.fs_help = true;
-		tut.arrow[tut.arrow.frame.full_screen].visible = true;
-		tut.fs_dismiss = env.add.sprite(tut.pos.fs_dismiss, 'tutorial buttons').setInteractive().setFrame(tut.button.frame.no_thanks).on('pointerdown', () => {
-			tut.arrow[tut.arrow.frame.full_screen].destroy();
-			tut.fs_dismiss.destroy();
-			tut.fs_help = false;
-		});
-		maximize.button.on('pointerdown', () => {
-			tut.arrow[tut.arrow.frame.full_screen].destroy();
-			tut.fs_dismiss.destroy();
-			tut.fs_help = false;
-		});
-	} else {tut.fs_help = false;}
+	tut.fs_help = false;
+	// if (!maximize.scale.isFullscreen) {
+		// tut.fs_help = true;
+		// tut.arrow[tut.arrow.frame.full_screen].visible = true;
+		// tut.fs_dismiss = env.add.sprite(tut.pos.fs_dismiss, 'tutorial buttons').setInteractive().setFrame(tut.button.frame.no_thanks).on('pointerdown', () => {
+			// tut.arrow[tut.arrow.frame.full_screen].destroy();
+			// tut.fs_dismiss.destroy();
+			// tut.fs_help = false;
+		// });
+		// maximize.button.on('pointerdown', () => {
+			// tut.arrow[tut.arrow.frame.full_screen].destroy();
+			// tut.fs_dismiss.destroy();
+			// tut.fs_help = false;
+		// });
+	// } else {tut.fs_help = false;}
 }
 
 // ====================================================================================
@@ -162,9 +163,9 @@ tut.pos = {
 	},
 	play_offset    : {x:    0, y: -150},
 	buy_offset     : {x: -300, y:    0},
-	first_buy      : {x: 3125, y:  540, button: {x: 3260, y: 660}},
-	later_buys     : {x: 2865, y:  540, button: {x: 3200, y: 840}},
-	super_effective: {x: 2100, y: 350},
+	first_buy      : {x: 3125, y:  540, button: {x: 3260, y: 680}},
+	later_buys     : {x: 2865, y:  390, button: {x: 3250, y: 737}},
+	super_effective: {x: 1950, y: 690},
 	shader: {
 		sky      : 2075,
 		fire     : 2375,
@@ -181,24 +182,24 @@ tut.pos = {
 	battle: {
 		x: 1350,
 		y: 540,
-		button: {x: 1730, y: 855},
+		button: {x: 1730, y: 875},
 	},
 	final_instr: {
 		x: 365,
 		y: 540,
-		button: {x:  525, y: 685},
+		button: {x:  525, y: 700},
 	},
 	end: {x: 675, y: 685},
 	arrow: [
 		env.nowhere,
-		{x: 1675, y: 825},
+		{x: 1675, y: 810},
 		env.nowhere,
 		{x: 1350, y: 235},
-		{x: 1582, y: 385},
-		{x: 1415, y: 540},
-		{x: 1250, y: 600},
+		{x: 1582, y: 400},
+		{x: 1415, y: 550},
+		{x: 1250, y: 580},
 		{x: 1582, y: 800},
-		{x: 1300, y: 850},
+		{x: 1300, y: 832},
 	],
 	fs_dismiss: {x: 1750, y: 740},
 }

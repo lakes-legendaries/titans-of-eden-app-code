@@ -50,9 +50,9 @@ env.preload = function(phasers_this) {
 	env.physics.load.image      ('log button'        , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Log%20Button.png');
 	env.physics.load.image      ('help button'       , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Help%20Button.png');
 	env.physics.load.image      ('restart button'    , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Restart%20Button.png');
-	env.physics.load.spritesheet('action buttons'    , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Action%20Buttons.png'      , {frameWidth: 200, frameHeight:  75});
+	env.physics.load.spritesheet('action buttons'    , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Action%20Buttons.png'      , {frameWidth: 250, frameHeight: 100});
 	env.physics.load.spritesheet('camera'            , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Camera%20Toggles.png'      , {frameWidth:  75, frameHeight: 175});
-	env.physics.load.spritesheet('tutorial buttons'  , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Tutorial%20Buttons.png'    , {frameWidth: 200, frameHeight:  75});
+	env.physics.load.spritesheet('tutorial buttons'  , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Tutorial%20Buttons.png'    , {frameWidth: 250, frameHeight: 100});
 	env.physics.load.spritesheet('full screen button', 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Full%20Screen%20Button.png', {frameWidth:  75, frameHeight:  75});
 	env.physics.load.spritesheet('title buttons'     , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Title%20Buttons.png'       , {frameWidth: 600, frameHeight: 150});
 	
@@ -84,7 +84,6 @@ env.preload = function(phasers_this) {
 	env.physics.load.image('log arrow'         , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Log%20arrow.png');
 	env.physics.load.image('explanation arrow' , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Explanation%20arrow.png');
 	env.physics.load.image('top card arrow'    , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Top%20card%20arrow.png');
-	env.physics.load.image('full screen arrow' , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Full%20Screen%20Arrow.png');
 	env.physics.load.image('surge arrow'       , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Surge%20arrow.png');
 	env.physics.load.spritesheet('camera arrow', 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Camera%20arrows.png', {frameWidth: 700, frameHeight: 500});
 }

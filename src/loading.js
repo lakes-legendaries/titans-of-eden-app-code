@@ -31,7 +31,7 @@ loading.preload = function() {
 			if (value > g / 8.0) {
 				loading.background[index].setTexture('cover' + String(index));
 				loading.background_loaded[index] = true;
-			}
+			} else {break;}
 		}
 		if (value >= 1 && !loading.buttons_placed) {
 			loading.play_fs_button = env.add.sprite({x:  540, y: 950}, 'title buttons').setFrame(0).setInteractive();

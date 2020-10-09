@@ -91,7 +91,7 @@ full_card.show_associated_subversion = function(subversion, sprite_num = 2) {
 	// Show subversion
 	full_card[sprite_num].x = full_card[0].x + full_card.pos.sub_offset.x;
 	full_card[sprite_num].y = full_card[0].y + (sprite_num == 2? -1: 1) * full_card.pos.sub_offset.y;
-	full_card[sprite_num].setFrame(subversion - abilities.subvert_cave_in).setScale(0.75);
+	full_card[sprite_num].setFrame(subversion == 7? 7: subversion - abilities.subvert_cave_in).setScale(0.75);
 	full_card[sprite_num].visible = true;
 	env.to_front(full_card[sprite_num]);
 }
@@ -168,6 +168,10 @@ full_card.show = function(card_num, subversion_frame) {
 			if (card[card_num].abilities[ability] > 0) {
 				full_card.show_associated_subversion(ability);
 			}
+		}
+		if (card[card_num].name == card.name.aurora_draco) {
+			full_card.show_associated_subversion(7);
+			full_card.show_associated_subversion(abilities.subvert_harmless, 3);
 		}
 	}
 	
