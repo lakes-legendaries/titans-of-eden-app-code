@@ -122,6 +122,9 @@ tut.start = function() {
 			// tut.fs_help = false;
 		// });
 	// } else {tut.fs_help = false;}
+	
+	// disable user input
+	tut.forced_input = -1; // an unreachable value
 }
 
 // ====================================================================================
