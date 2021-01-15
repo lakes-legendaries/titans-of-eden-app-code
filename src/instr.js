@@ -201,7 +201,7 @@ instr.pos = {x: 1770, y:  415}
 instr.max_height = 450;
 instr.format = {
 	backgroundColor: null,
-	fontFamily: "Roboto Black",
+	fontFamily: "Roboto",
 	fontSize  : "22px",
 	color     : "black",
 	align     : "center",
