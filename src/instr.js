@@ -14,7 +14,7 @@ var instr = {
 }
 
 instr.preload = function() {
-	let url = 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexbbcodetextplugin.min.js';
+	let url = 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/b0ae5f3c53d9e35dccf5ab2dde4ceefde9a05f0a/dist/rexbbcodetextplugin.min.js';
 	env.physics.load.plugin('rexbbcodetextplugin', url, true);
 }
 
