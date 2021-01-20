@@ -125,6 +125,9 @@ tut.start = function() {
 	
 	// disable user input
 	tut.forced_input = -1; // an unreachable value
+    
+    // turn off secondary reference sheet (sprite)
+    ref.sprite.visible = false;
 }
 
 // ====================================================================================

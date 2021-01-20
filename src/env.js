@@ -42,6 +42,7 @@ env.preload = function(phasers_this) {
 	
 	// Load cards
 	env.physics.load.image      ('ref sheet'   , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Reference%20Sheet.png');
+    env.physics.load.image      ('ref sprite'  , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Reference%20Sprite.png');
 	env.physics.load.spritesheet('full cards A', 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Full%20Cards%20A.png', {frameWidth: 500, frameHeight: 700});
 	env.physics.load.spritesheet('full cards B', 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Full%20Cards%20B.png', {frameWidth: 500, frameHeight: 700});
 	env.physics.load.spritesheet('half cards'  , 'https://lakes-legendaries.github.io/titans-of-eden-app-assets/Card%20Sprites.png'  , {frameWidth: 250, frameHeight: 200});
